@@ -2,6 +2,7 @@ import { client } from './index.js';
 import fs from 'fs';
 import bcrypt from 'bcrypt'
 import { ObjectId } from 'bson';
+import jwt from 'jsonwebtoken';
 
 // backup the deleting file
 export const backup = async (fileData) => {
