@@ -6,7 +6,6 @@ import nodemailer from 'nodemailer'
 import { auth } from '../middleware/auth.js';
 import dotenv from 'dotenv';
 dotenv.config()
-
 const router = express.Router();
 //  mail config
 
@@ -79,7 +78,7 @@ router
             to: data.email,
             subject: "User Confirmation",
             generateTextFromHTML: true,
-            html: `<b>Hello User !!</b> <p>Use these credentials to log in <p>username : ${data.username}</p>password : ${passcode}<p></p> <a href='http://localhost:3000/login'> Log in </a></p>`
+            html: `<b>Hello User !!</b> <p>Use these credentials to log in <p>username : ${data.username}</p>password : ${passcode}<p></p> <a href='https://pizzaguy.netlify.app/login'> Log in </a></p>`
           };
      smtpTransport.sendMail(mailOptions, function(error, response) {
         if (error) {
