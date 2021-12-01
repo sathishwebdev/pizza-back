@@ -4,6 +4,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer'
 import { auth } from '../middleware/auth.js';
+import dotenv from 'dotenv';
+dotenv.config()
 
 const router = express.Router();
 //  mail config
@@ -16,10 +18,10 @@ var smtpTransport = nodemailer.createTransport({
     auth: {
         type:"OAuth2",
         user: "mail2pizzaguy@gmail.com", 
-        clientId: "898570852292-6lk50sfpj3qg599gd872v6ucta9f4k19.apps.googleusercontent.com",
-        clientSecret: "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",
-        refreshToken: "1//04r3K5eYhmHBhCgYIARAAGAQSNwF-L9Ir8N_qI8B2D4RRs98g-XA-yy1w5mo6AcJ1h3zFeLyxUyf6pRPT0I4kbDqM717B38LsOVM",
-        accessToken:"ya29.a0ARrdaM8VD8QgXDcEsAUEGc6QgZUqILMAblPn9JwSwkIKHtRJ16w0Jv6YYLN1r0yeFQCwOjNXqRvNsz_cJev9snvEskj7VxuU4yizlHkfcWo5vqKyP7_m6oEb9YLKraRQ8nxiNYIkqlEnZlUKiCj5w_GL1sxU"
+        clientId: process.env.G_CLIENT_ID,
+        clientSecret: process.env.G_CLIENT_SECRET,
+        refreshToken: process.env.G_R_TOKEN,
+        accessToken: process.env.G_A_TOKEN
       
     }
   });
