@@ -5,13 +5,13 @@ const app = express();
 require("./db");
 const cors = require("cors");
 
-// // Middleware
-// app.use(require("morgan")("tiny")); // Log API method details
+// Middleware
+app.use(require("morgan")("tiny")); // Log API method details
 app.use(express.json());
 app.use(cors());
 app.options("*", cors());
-app.use(require("./helpers/jwt")()); // Protect API Authentication
-app.use(require("./helpers/errorhandler"));
+app.use(require("./helpers/jwt.js")()); // Protect API Authentication
+app.use(require("./helpers/errorhandler.js"));
 
 // Routes
 app.use("/api/pizzas", require("./routes/pizza.routes"));
