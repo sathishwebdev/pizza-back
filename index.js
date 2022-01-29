@@ -5,8 +5,8 @@ const app = express();
 require("./db");
 const cors = require("cors");
 
-// Middleware
-app.use(require("morgan")("tiny")); // Log API method details
+// // Middleware
+// app.use(require("morgan")("tiny")); // Log API method details
 app.use(express.json());
 app.use(cors());
 app.options("*", cors());
